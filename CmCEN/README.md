@@ -1,15 +1,3 @@
-# Cross-Modal-Re-ID-baseline (AGW) 
-Pytorch Code of AGW method [1] for Cross-Modality Person Re-Identification (Visible Thermal Re-ID) on RegDB dataset [3] and SYSU-MM01 dataset [4]. 
-
-We adopt the two-stream network structure introduced in [2]. ResNet50 is adopted as the backbone. The softmax loss is adopted as the baseline. 
-
-|Datasets    | Pretrained| Rank@1  | mAP |  mINP |  Model|
-| --------   | -----    | -----  |  -----  | ----- |------|
-|#RegDB      | ImageNet | ~ 70.05% | ~ 66.37%|  ~50.19% |----- |
-|#SYSU-MM01  | ImageNet | ~ 47.50%  | ~ 47.65% | ~35.30% | [GoogleDrive](https://drive.google.com/open?id=181K9PQGnej0K5xNX9DRBDPAf3K9JosYk)|
-
-*Both of these two datasets may have some fluctuation due to random spliting. The results might be better by finetuning the hyper-parameters. 
-
 ### 1. Prepare the datasets.
 
 - (1) RegDB Dataset [3]: The RegDB dataset can be downloaded from this [website](http://dm.dongguk.edu/link.html) by submitting a copyright form.
@@ -25,7 +13,7 @@ We adopt the two-stream network structure introduced in [2]. ResNet50 is adopted
 ### 2. Training.
   Train a model by
   ```bash
-python train.py --dataset sysu --lr 0.1 --method agw --gpu 1
+python train.py --dataset sysu --lr 0.1 --method CmCEN --gpu 1
 ```
 
   - `--dataset`: which dataset "sysu" or "regdb".
@@ -64,22 +52,32 @@ python test.py --mode all --resume 'model_path' --gpu 1 --dataset sysu
 
 Please kindly cite this paper in your publications if it helps your research:
 ```
-@article{arxiv20reidsurvey,
-  title={Deep Learning for Person Re-identification: A Survey and Outlook},
-  author={Ye, Mang and Shen, Jianbing and Lin, Gaojie and Xiang, Tao and Shao, Ling and Hoi, Steven C. H.},
-  journal={arXiv preprint arXiv:2001.04193},
-  year={2020},
+@inproceedings{DBLP:conf/iconip/XuWLX21,
+  author    = {Xiaohui Xu and
+               Song Wu and
+               Shan Liu and
+               Guoqiang Xiao},
+  editor    = {Teddy Mantoro and
+               Minho Lee and
+               Media Anugerah Ayu and
+               Kok Wai Wong and
+               Achmad Nizar Hidayanto},
+  title     = {Cross-Modal Based Person Re-identification via Channel Exchange and
+               Adversarial Learning},
+  booktitle = {Neural Information Processing - 28th International Conference, {ICONIP}
+               2021, Sanur, Bali, Indonesia, December 8-12, 2021, Proceedings, Part
+               {I}},
+  series    = {Lecture Notes in Computer Science},
+  volume    = {13108},
+  pages     = {500--511},
+  publisher = {Springer},
+  year      = {2021},
+  url       = {https://doi.org/10.1007/978-3-030-92185-9\_41},
+  doi       = {10.1007/978-3-030-92185-9\_41},
+  timestamp = {Tue, 14 Dec 2021 17:56:34 +0100},
+  biburl    = {https://dblp.org/rec/conf/iconip/XuWLX21.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
 }
 ```
 
-###  5. References.
 
-[1] M. Ye, J. Shen, G. Lin, T. Xiang, L. Shao, and S. C., Hoi. 	Deep learning for person re-identification: A survey and outlook. IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI), 2020.
-
-[2] M. Ye, X. Lan, Z. Wang, and P. C. Yuen. Bi-directional Center-Constrained Top-Ranking for Visible Thermal Person Re-Identification. IEEE Transactions on Information Forensics and Security (TIFS), 2019.
-
-[3] D. T. Nguyen, H. G. Hong, K. W. Kim, and K. R. Park. Person recognition system based on a combination of body images from visible light and thermal cameras. Sensors, 17(3):605, 2017.
-
-[4] A. Wu, W.-s. Zheng, H.-X. Yu, S. Gong, and J. Lai. Rgb-infrared crossmodality person re-identification. In IEEE International Conference on Computer Vision (ICCV), pages 5380–5389, 2017.
-
-Contact: mangye16@gmail.com
