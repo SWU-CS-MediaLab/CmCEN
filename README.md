@@ -1,15 +1,11 @@
 # CmCEN
 # Cross-modal Person Re-Identification via Channel Exchange and adversarial Learning
 1. Prepare the datasets.
-(1) RegDB Dataset [3]: The RegDB dataset can be downloaded from this website by submitting a copyright form.
-
+(1) RegDB Dataset: The RegDB dataset can be downloaded from this website by submitting a copyright form.
 (Named: "Dongguk Body-based Person Recognition Database (DBPerson-Recog-DB1)" on their website).
-
-A private download link can be requested via sending me an email (mangye16@gmail.com).
-
-(2) SYSU-MM01 Dataset [4]: The SYSU-MM01 dataset can be downloaded from this website.
-
+(2) SYSU-MM01 Dataset: The SYSU-MM01 dataset can be downloaded from this website.
 run python pre_process_sysu.py to pepare the dataset, the training data will be stored in ".npy" format.
+
 2. Training.
 Train a model by
 
